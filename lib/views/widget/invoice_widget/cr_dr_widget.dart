@@ -20,7 +20,7 @@ class _Cr_Dr_widgetState extends State<Cr_Dr_widget> {
           ? 67.h
           : height < 650
               ? 64.h
-              : 60.5.h,
+              : 60.h,
       width: 400,
       child: ListView.builder(
         itemCount: 10,

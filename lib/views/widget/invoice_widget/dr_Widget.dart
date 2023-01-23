@@ -21,7 +21,7 @@ class _Dr_WidgetState extends State<Dr_Widget> {
           ? 67.h
           : height < 650
               ? 64.h
-              : 60.5.h,
+              : 60.h,
       width: 400,
       child: ListView.builder(
         itemCount: 10,

@@ -113,8 +113,10 @@ class _QuotationForm_ScreenState extends State<QuotationForm_Screen> {
                                     fit: BoxFit.contain,
                                     child: Text(
                                       '100/kg',
-                                      style:
-                                          Theme.of(context).textTheme.bodyText1,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyText1!
+                                          .copyWith(fontSize: 16),
                                     ),
                                   ),
                                 ),
@@ -128,44 +130,82 @@ class _QuotationForm_ScreenState extends State<QuotationForm_Screen> {
                       height: SizeVariables.getHeight(context) * 0.013,
                     ),
                     Container(
-                      width: SizeVariables.getWidth(context) * 0.7,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      width: SizeVariables.getWidth(context) * 0.64,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Row(
-                            children: [
-                              Container(
-                                child: FittedBox(
-                                  fit: BoxFit.contain,
-                                  child: Text(
-                                    'Item name',
-                                    style:
-                                        Theme.of(context).textTheme.bodyText2,
+                          Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    Container(
+                                      child: FittedBox(
+                                        fit: BoxFit.contain,
+                                        child: Text(
+                                          'Item name',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyText2,
+                                        ),
+                                      ),
+                                    ),
+                                    InkWell(
+                                      onTap: () {},
+                                      child: Container(
+                                        padding: EdgeInsets.only(
+                                            left: SizeVariables.getWidth(
+                                                    context) *
+                                                0.01),
+                                        child: Icon(
+                                          Icons.info_outline_rounded,
+                                          size: 15,
+                                          color: Theme.of(context)
+                                              .bottomAppBarColor,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Container(
+                                  child: FittedBox(
+                                    fit: BoxFit.contain,
+                                    child: Text(
+                                      'keyboard with lights',
+                                      style:
+                                          Theme.of(context).textTheme.bodyText1,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              InkWell(
-                                onTap: () {},
-                                child: Container(
-                                  padding: EdgeInsets.only(
-                                      left: SizeVariables.getWidth(context) *
-                                          0.01),
-                                  child: Icon(
-                                    Icons.info_outline_rounded,
-                                    size: 15,
-                                    color: Theme.of(context).bottomAppBarColor,
-                                  ),
-                                ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                           Container(
-                            child: FittedBox(
-                              fit: BoxFit.contain,
-                              child: Text(
-                                'keyboard with lights',
-                                style: Theme.of(context).textTheme.bodyText1,
-                              ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  child: FittedBox(
+                                    fit: BoxFit.contain,
+                                    child: Text(
+                                      'Required Date',
+                                      style:
+                                          Theme.of(context).textTheme.bodyText2,
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  child: FittedBox(
+                                    fit: BoxFit.contain,
+                                    child: Text(
+                                      '2023-02-10',
+                                      style:
+                                          Theme.of(context).textTheme.bodyText1,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
@@ -335,7 +375,7 @@ class _QuotationForm_ScreenState extends State<QuotationForm_Screen> {
                     Container(
                       width: SizeVariables.getWidth(context) * 0.75,
                       child: TextFormField(
-                        controller: _quantity,
+                        controller: _total,
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           enabledBorder: UnderlineInputBorder(
@@ -425,7 +465,9 @@ class _QuotationForm_ScreenState extends State<QuotationForm_Screen> {
                                   builder: (context, child) => Theme(
                                     data: ThemeData().copyWith(
                                       colorScheme: ColorScheme.dark(
-                                        primary: Colors.amber,
+                                        primary: Theme.of(context)
+                                            .colorScheme
+                                            .secondary,
                                         surface: Theme.of(context)
                                             .colorScheme
                                             .secondary,
@@ -506,7 +548,7 @@ class _QuotationForm_ScreenState extends State<QuotationForm_Screen> {
                       height: SizeVariables.getHeight(context) * 0.037,
                       width: SizeVariables.getWidth(context) * 0.26,
                       child: AppButton(
-                        label: 'Submitted',
+                        label: 'Submit',
                         onPressed: () {},
                       ),
                     ),

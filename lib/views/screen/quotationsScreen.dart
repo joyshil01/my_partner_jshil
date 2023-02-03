@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
 import '../../res/components/date_range_picker.dart';
 import '../../res/mediaQuery.dart';
@@ -88,127 +87,134 @@ class _QuotationScreenState extends State<QuotationScreen> {
                         right: SizeVariables.getWidth(context) * 0.025,
                       ),
                       child: ContainerStyleInvoice(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
                               // color: Colors.red,
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  CircleAvatar(
-                                    radius:
-                                        SizeVariables.getWidth(context) * 0.06,
-                                    backgroundColor: Colors.green,
-                                    backgroundImage: const AssetImage(
-                                        'assets/img/profilePic.jpg'),
-                                    // child: const Icon(Icons.account_box, color: Colors.white),
-                                  ),
-                                  Container(
-                                    padding: EdgeInsets.only(
-                                      left: SizeVariables.getWidth(context) *
-                                          0.01,
-                                    ),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          width:
-                                              SizeVariables.getWidth(context) *
-                                                  0.5,
-                                          // color: Colors.amber,
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceAround,
-                                            children: [
-                                              Container(
-                                                // width: SizeVariables.getWidth(context)*0.15,
-                                                child: FittedBox(
-                                                  fit: BoxFit.contain,
-                                                  child: Text(
-                                                    'Q00000005',
-                                                    style: Theme.of(context)
-                                                        .textTheme
-                                                        .bodyText2!
-                                                        .copyWith(fontSize: 12),
-                                                  ),
-                                                ),
-                                              ),
-                                              Container(
-                                                // width: SizeVariables.getWidth(context)*0.15,
-                                                child: FittedBox(
-                                                  fit: BoxFit.contain,
-                                                  child: Text(
-                                                    '2023-02-01',
-                                                    style: Theme.of(context)
-                                                        .textTheme
-                                                        .bodyText1,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(3),
+                                    child: Container(
+                                      // width: SizeVariables.getWidth(context)*0.15,
+                                      child: FittedBox(
+                                        fit: BoxFit.contain,
+                                        child: Text(
+                                          'Q00000005',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyText2,
                                         ),
-                                        SizedBox(
-                                          height:
-                                              SizeVariables.getHeight(context) *
-                                                  0.01,
-                                        ),
-                                        Container(
-                                          width:
-                                              SizeVariables.getWidth(context) *
-                                                  0.5,
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceAround,
-                                            children: [
-                                              Container(
-                                                // width: SizeVariables.getWidth(context)*0.15,
-                                                child: FittedBox(
-                                                  fit: BoxFit.contain,
-                                                  child: Text(
-                                                    '[1 item/s]',
-                                                    style: Theme.of(context)
-                                                        .textTheme
-                                                        .bodyText1,
-                                                  ),
-                                                ),
-                                              ),
-                                              Container(
-                                                width: SizeVariables.getWidth(
-                                                        context) *
-                                                    0.18,
-                                                child: FittedBox(
-                                                  fit: BoxFit.contain,
-                                                  child: Text(
-                                                    'Due in 83 days',
-                                                    style: Theme.of(context)
-                                                        .textTheme
-                                                        .bodyText2,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
+                                      ),
                                     ),
                                   ),
-                                  Container(
-                                    padding: EdgeInsets.only(
-                                      left: SizeVariables.getWidth(context) *
-                                          0.03,
+                                  Padding(
+                                    padding: const EdgeInsets.all(3),
+                                    child: Container(
+                                      // width: SizeVariables.getWidth(context)*0.15,
+                                      child: FittedBox(
+                                        fit: BoxFit.contain,
+                                        child: Text(
+                                          '[1 item/s]',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyText1,
+                                        ),
+                                      ),
                                     ),
-                                    child: FittedBox(
-                                      fit: BoxFit.cover,
-                                      child: Text(
-                                        '\₹123617',
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyText1!
-                                            .copyWith(fontSize: 16),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(3),
+                                    child: Container(
+                                      // width: SizeVariables.getWidth(context)*0.15,
+                                      child: FittedBox(
+                                        fit: BoxFit.contain,
+                                        child: Text(
+                                          '2023-02-01',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyText1,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(3),
+                                    child: Container(
+                                      width: SizeVariables.getWidth(context) *
+                                          0.18,
+                                      child: FittedBox(
+                                        fit: BoxFit.contain,
+                                        child: Text(
+                                          'Due in 83 days',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyText2,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(3),
+                                    child: Container(
+                                      child: FittedBox(
+                                        fit: BoxFit.cover,
+                                        child: Text(
+                                          '\₹123617',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyText1!
+                                              .copyWith(fontSize: 16),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(3),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        color:
+                                            Color.fromARGB(255, 174, 194, 185),
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 7.0,
+                                            right: 7.0,
+                                            top: 2.8,
+                                            bottom: 2.8),
+                                        child: Center(
+                                          child: FittedBox(
+                                            fit: BoxFit.contain,
+                                            child: Text(
+                                              'Quotation yet to send',
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyText1!
+                                                  .copyWith(
+                                                    color: Color.fromARGB(
+                                                        255, 63, 147, 84),
+                                                    fontSize: 12,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -220,52 +226,7 @@ class _QuotationScreenState extends State<QuotationScreen> {
                             // ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  width: 100,
-                                  padding: EdgeInsets.only(
-                                      // left: SizeVariables.getWidth(context) * 0.03,
-                                      top: SizeVariables.getHeight(context) *
-                                          0.013),
-                                  child: Text(
-                                    'Flipkart India Pvt Ltd. ',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyText1!
-                                        .copyWith(fontSize: 16),
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: Color.fromARGB(255, 174, 194, 185),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 7.0,
-                                        right: 7.0,
-                                        top: 2.8,
-                                        bottom: 2.8),
-                                    child: Center(
-                                      child: FittedBox(
-                                        fit: BoxFit.contain,
-                                        child: Text(
-                                          'Save as',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyText1!
-                                              .copyWith(
-                                                color: Color.fromARGB(
-                                                    255, 63, 147, 84),
-                                                fontSize: 12,
-                                              ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
+                              children: [],
                             ),
                           ],
                         ),

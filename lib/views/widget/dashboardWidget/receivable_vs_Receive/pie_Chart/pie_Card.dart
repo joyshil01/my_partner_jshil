@@ -24,14 +24,10 @@ class _Pie_CardState extends State<Pie_Card> {
             startDegreeOffset: 270.0,
             sectionsSpace: 1,
             centerSpaceRadius: 60,
-            //centerSpaceColor: Color.fromARGB(255, 33, 33, 33),
-            centerSpaceColor: Theme.of(context).scaffoldBackgroundColor,
             sections: [
               PieChartSectionData(
                   color: Color.fromARGB(255, 147, 146, 146),
                   showTitle: false,
-                  // title: provider['upcoming'].length.toString(),
-                  // value:
                   radius: 22,
                   titleStyle: const TextStyle(fontSize: 15)),
               PieChartSectionData(

@@ -8,4 +8,5 @@ class RouteNames {
   static const String upload_cr_note = 'upload-cr-note';
   static const String upload_account_statement = 'upload-account-statement';
   static const String miscellaneous = 'miscellaneous-screen';
+  static const String profile = 'profile-screen';
 }

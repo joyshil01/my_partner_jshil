@@ -4,6 +4,7 @@ import 'package:vendor/views/screen/invoicedetails_Screen.dart';
 import 'package:vendor/views/screen/login/login_Screen.dart';
 import 'package:vendor/views/screen/miscellaneous_screen.dart';
 import 'package:vendor/views/screen/podetails_Screen.dart';
+import 'package:vendor/views/screen/profileScreen.dart';
 import 'package:vendor/views/screen/quotationFormScreen.dart';
 import 'package:vendor/views/screen/uploadAccountStatement_screen.dart';
 import 'package:vendor/views/screen/uploadCrNote_screen.dart';
@@ -48,6 +49,10 @@ class Routes {
       case RouteNames.miscellaneous:
         return MaterialPageRoute(
             builder: (BuildContext context) => Miscellaneous_Screen());
+
+      case RouteNames.profile:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => ProfileScreen());
 
       default:
         return MaterialPageRoute(

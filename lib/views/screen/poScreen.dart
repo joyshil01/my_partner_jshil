@@ -3,7 +3,6 @@ import 'package:sizer/sizer.dart';
 import 'package:vendor/res/mediaQuery.dart';
 import 'package:vendor/routes/routeName.dart';
 import 'package:vendor/views/widget/dashboardWidget/lastInvoice/invoiceListContainer.dart';
-
 import '../../res/components/date_range_picker.dart';
 import '../responsive.dart';
 
@@ -80,7 +79,7 @@ class _PoScreenState extends State<PoScreen> {
                       left: SizeVariables.getWidth(context) * 0.025,
                       right: SizeVariables.getWidth(context) * 0.025,
                       top: SizeVariables.getHeight(context) * 0.01,
-                      bottom: SizeVariables.getHeight(context)*0.01,
+                      bottom: SizeVariables.getHeight(context) * 0.01,
                     ),
                     child: InkWell(
                       onTap: () {

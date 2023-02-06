@@ -82,7 +82,8 @@ class _ReceivableWidgetState extends State<ReceivableWidget> {
                             height: SizeVariables.getHeight(context) * 0.045,
                             padding: const EdgeInsets.symmetric(horizontal: 15),
                             decoration: BoxDecoration(
-                                color: const Color.fromARGB(255, 181, 179, 179)
+                                color: 
+                                const Color.fromARGB(255, 181, 179, 179)
                                     .withOpacity(0.1),
 
                                 // Colors.red,

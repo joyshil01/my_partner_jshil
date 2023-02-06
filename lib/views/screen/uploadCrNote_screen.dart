@@ -108,7 +108,7 @@ class _UploadCrNote_ScreenState extends State<UploadCrNote_Screen>
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.secondary,
         title: Text(
-          "Upload Cr Note",
+          "Upload Cr & Dr Note",
           style: Theme.of(context).textTheme.bodyText2!.copyWith(
                 fontSize: 22,
                 color: Colors.white,
@@ -122,7 +122,7 @@ class _UploadCrNote_ScreenState extends State<UploadCrNote_Screen>
               height: 50,
             ),
             Text(
-              'Upload your Cr Note',
+              'Upload your Cr & Dr Note',
               style: Theme.of(context).textTheme.bodyText2!.copyWith(
                     fontSize: 22,
                   ),

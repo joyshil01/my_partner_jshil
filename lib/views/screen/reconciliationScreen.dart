@@ -14,7 +14,7 @@ class ReconciliationScreen extends StatefulWidget {
     {
       'image': "assets/menu/ticket-form.svg",
       'route': RouteNames.upload_cr_note,
-      'name': "Upload Cr Note"
+      'name': "Upload Cr & Dr Note"
     },
     {
       "image": "assets/menu/ticket-form.svg",

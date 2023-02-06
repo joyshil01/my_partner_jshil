@@ -411,7 +411,7 @@ class _Preview_WidgetState extends State<Preview_Widget> {
                           height: SizeVariables.getHeight(context) * 0.004,
                         ),
                         Container(
-                          color: Colors.amber,
+                          // color: Colors.amber,
                           margin: EdgeInsets.all(5),
                           child: Row(
                             children: [

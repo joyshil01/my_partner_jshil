@@ -1,3 +1,4 @@
+import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:vendor/res/components/buttonStyle.dart';
@@ -22,79 +23,177 @@ class _QuotationForm_ScreenState extends State<QuotationForm_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      floatingActionButton: Container(
+        child: FloatingActionButton(
+          backgroundColor: Theme.of(context).colorScheme.secondary,
+          onPressed: () {
+            CoolAlert.show(
+              context: context,
+              type: CoolAlertType.confirm,
+              // text: 'Are you sure upload invoice',
+              confirmBtnText: 'Yes',
+              cancelBtnText: 'No',
+              confirmBtnTextStyle: Theme.of(context)
+                  .textTheme
+                  .bodyText1!
+                  .copyWith(color: Colors.white),
+              cancelBtnTextStyle: Theme.of(context).textTheme.bodyText1,
+              confirmBtnColor: Theme.of(context).bottomAppBarColor,
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+              onConfirmBtnTap: () {
+                Navigator.of(context).pop();
+              },
+              onCancelBtnTap: () {
+                Navigator.of(context).pop();
+              },
+            );
+          },
+          child: Icon(
+            Icons.send,
+            color: Theme.of(context).colorScheme.background,
+          ),
+        ),
+      ),
+      backgroundColor: Theme.of(context).colorScheme.secondary,
       appBar: AppBar(
         leading: BackButton(
-          color: Theme.of(context).bottomAppBarColor,
+          color: Colors.white,
         ),
         // centerTitle: true,
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        backgroundColor: Theme.of(context).colorScheme.secondary,
         title: Text(
           "Quotations input",
           style: Theme.of(context).textTheme.bodyText2!.copyWith(
                 fontSize: 22,
+                color: Colors.white,
               ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                child: FittedBox(
-                  fit: BoxFit.contain,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: EdgeInsets.all(14),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
                   child: Text(
-                    'Items details of PR1673353508/1',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyText2!
-                        .copyWith(fontSize: 16),
+                    'PR1673353508/1',
+                    style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                          color: Colors.white,
+                          fontSize: 14,
+                        ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: SizeVariables.getHeight(context) * 0.01,
-              ),
-              Container_Header(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: SizeVariables.getWidth(context) * 0.7,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  child: FittedBox(
-                                    fit: BoxFit.contain,
-                                    child: Text(
-                                      'Item code',
-                                      style:
-                                          Theme.of(context).textTheme.bodyText2,
-                                    ),
+                SizedBox(
+                  height: SizeVariables.getHeight(context) * 0.01,
+                ),
+                Container(
+                  child: Row(
+                    children: [
+                      Container(
+                        child: Text(
+                          'Final submission data:',
+                          style:
+                              Theme.of(context).textTheme.bodyText2!.copyWith(
+                                    color: Colors.white,
+                                    fontSize: 14,
                                   ),
-                                ),
-                                Container(
-                                  child: FittedBox(
-                                    fit: BoxFit.contain,
-                                    child: Text(
-                                      '010004402',
-                                      style:
-                                          Theme.of(context).textTheme.bodyText1,
-                                    ),
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(
+                          left: SizeVariables.getWidth(context) * 0.01,
+                        ),
+                        child: Text(
+                          '2023-03-10',
+                          style:
+                              Theme.of(context).textTheme.bodyText1!.copyWith(
+                                    color: Colors.white,
+                                    fontSize: 14,
                                   ),
-                                ),
-                              ],
-                            ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: SizeVariables.getHeight(context) * 0.01,
+                ),
+                Container(
+                  child: Row(
+                    children: [
+                      Container(
+                        child: Text(
+                          'total amount:',
+                          style:
+                              Theme.of(context).textTheme.bodyText2!.copyWith(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                  ),
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(
+                          left: SizeVariables.getWidth(context) * 0.01,
+                        ),
+                        child: Text(
+                          '₹ 1000',
+                          style:
+                              Theme.of(context).textTheme.bodyText1!.copyWith(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                  ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          ClipRRect(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+            child: Container(
+              height: 680,
+              decoration: BoxDecoration(
+                color: Theme.of(context).scaffoldBackgroundColor,
+              ),
+              child: ListView.builder(
+                  itemCount: 5,
+                  itemBuilder: (context, snapshot) {
+                    return Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: const Border(
+                            bottom: BorderSide(width: 0.06),
+                            top: BorderSide(width: 0.06),
+                            right: BorderSide(width: 0.06),
+                            left: BorderSide(width: 0.06),
                           ),
-                          Container(
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color.fromARGB(255, 197, 195, 195),
+                              offset: Offset(
+                                3.0,
+                                3.0,
+                              ),
+                              blurRadius: 3.0,
+                              spreadRadius: 1.0,
+                            ), //BoxShadow
+                          ],
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.vertical,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -102,462 +201,627 @@ class _QuotationForm_ScreenState extends State<QuotationForm_Screen> {
                                   child: FittedBox(
                                     fit: BoxFit.contain,
                                     child: Text(
-                                      'Required quantity',
-                                      style:
-                                          Theme.of(context).textTheme.bodyText2,
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  child: FittedBox(
-                                    fit: BoxFit.contain,
-                                    child: Text(
-                                      '100/kg',
+                                      'Items details of PR1673353508/1',
                                       style: Theme.of(context)
                                           .textTheme
-                                          .bodyText1!
+                                          .bodyText2!
                                           .copyWith(fontSize: 16),
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: SizeVariables.getHeight(context) * 0.013,
-                    ),
-                    Container(
-                      width: SizeVariables.getWidth(context) * 0.64,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  children: [
-                                    Container(
-                                      child: FittedBox(
-                                        fit: BoxFit.contain,
-                                        child: Text(
-                                          'Item name',
+                                SizedBox(
+                                  height:
+                                      SizeVariables.getHeight(context) * 0.01,
+                                ),
+                                Container_Header(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        width: SizeVariables.getWidth(context) *
+                                            0.7,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Container(
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Container(
+                                                    child: FittedBox(
+                                                      fit: BoxFit.contain,
+                                                      child: Text(
+                                                        'Item code',
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .bodyText2,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    child: FittedBox(
+                                                      fit: BoxFit.contain,
+                                                      child: Text(
+                                                        '010004402',
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .bodyText1,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Container(
+                                                    child: FittedBox(
+                                                      fit: BoxFit.contain,
+                                                      child: Text(
+                                                        'Required quantity',
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .bodyText2,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    child: FittedBox(
+                                                      fit: BoxFit.contain,
+                                                      child: Text(
+                                                        '100/kg',
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .bodyText1!
+                                                            .copyWith(
+                                                                fontSize: 16),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height:
+                                            SizeVariables.getHeight(context) *
+                                                0.013,
+                                      ),
+                                      Container(
+                                        width: SizeVariables.getWidth(context) *
+                                            0.64,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Container(
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      Container(
+                                                        child: FittedBox(
+                                                          fit: BoxFit.contain,
+                                                          child: Text(
+                                                            'Item name',
+                                                            style: Theme.of(
+                                                                    context)
+                                                                .textTheme
+                                                                .bodyText2,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      InkWell(
+                                                        onTap: () {},
+                                                        child: Container(
+                                                          padding: EdgeInsets.only(
+                                                              left: SizeVariables
+                                                                      .getWidth(
+                                                                          context) *
+                                                                  0.01),
+                                                          child: Icon(
+                                                            Icons
+                                                                .info_outline_rounded,
+                                                            size: 15,
+                                                            color: Theme.of(
+                                                                    context)
+                                                                .bottomAppBarColor,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Container(
+                                                    child: FittedBox(
+                                                      fit: BoxFit.contain,
+                                                      child: Text(
+                                                        'keyboard with lights',
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .bodyText1,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Container(
+                                                    child: FittedBox(
+                                                      fit: BoxFit.contain,
+                                                      child: Text(
+                                                        'Required Date',
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .bodyText2,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    child: FittedBox(
+                                                      fit: BoxFit.contain,
+                                                      child: Text(
+                                                        '2023-02-10',
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .bodyText1,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.only(
+                                    left:
+                                        SizeVariables.getWidth(context) * 0.025,
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        width: SizeVariables.getWidth(context) *
+                                            0.75,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Container(
+                                              width: SizeVariables.getWidth(
+                                                      context) *
+                                                  0.3,
+                                              child: TextFormField(
+                                                controller: _quantity,
+                                                keyboardType:
+                                                    TextInputType.number,
+                                                decoration: InputDecoration(
+                                                  enabledBorder:
+                                                      UnderlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      width: 2,
+                                                      color: Theme.of(context)
+                                                          .bottomAppBarColor,
+                                                    ),
+                                                  ),
+                                                  focusedBorder:
+                                                      const UnderlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                        width: 2,
+                                                        color: Color.fromARGB(
+                                                            255,
+                                                            194,
+                                                            191,
+                                                            191)),
+                                                  ),
+                                                  // border: InputBorder.none,
+                                                  labelText: 'Quantity',
+                                                  labelStyle: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyText1!
+                                                      .copyWith(
+                                                          fontSize: 18,
+                                                          color: Colors.black),
+                                                ),
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyText2!
+                                                    .copyWith(
+                                                        color: Colors.black),
+                                                showCursor: true,
+                                                cursorColor: Colors.black,
+                                              ),
+                                            ),
+                                            Container(
+                                              width: SizeVariables.getWidth(
+                                                      context) *
+                                                  0.3,
+                                              child: TextFormField(
+                                                controller: _price,
+                                                keyboardType:
+                                                    TextInputType.number,
+                                                decoration: InputDecoration(
+                                                  enabledBorder:
+                                                      UnderlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      width: 2,
+                                                      color: Theme.of(context)
+                                                          .bottomAppBarColor,
+                                                    ),
+                                                  ),
+                                                  focusedBorder:
+                                                      const UnderlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      width: 2,
+                                                      color: Color.fromARGB(
+                                                          255, 194, 191, 191),
+                                                    ),
+                                                  ),
+                                                  // border: InputBorder.none,
+                                                  labelText: 'Price',
+                                                  labelStyle: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyText1!
+                                                      .copyWith(
+                                                          fontSize: 18,
+                                                          color: Colors.black),
+                                                ),
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyText2!
+                                                    .copyWith(
+                                                        color: Colors.black),
+                                                showCursor: true,
+                                                cursorColor: Colors.black,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        width: SizeVariables.getWidth(context) *
+                                            0.75,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Container(
+                                              width: SizeVariables.getWidth(
+                                                      context) *
+                                                  0.3,
+                                              child: TextFormField(
+                                                controller: _discount,
+                                                keyboardType:
+                                                    TextInputType.number,
+                                                decoration: InputDecoration(
+                                                  enabledBorder:
+                                                      UnderlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      width: 2,
+                                                      color: Theme.of(context)
+                                                          .bottomAppBarColor,
+                                                    ),
+                                                  ),
+                                                  focusedBorder:
+                                                      const UnderlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                        width: 2,
+                                                        color: Color.fromARGB(
+                                                            255,
+                                                            194,
+                                                            191,
+                                                            191)),
+                                                  ),
+                                                  // border: InputBorder.none,
+                                                  labelText: 'Discount',
+                                                  labelStyle: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyText1!
+                                                      .copyWith(
+                                                          fontSize: 18,
+                                                          color: Colors.black),
+                                                ),
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyText2!
+                                                    .copyWith(
+                                                        color: Colors.black),
+                                                showCursor: true,
+                                                cursorColor: Colors.black,
+                                              ),
+                                            ),
+                                            Container(
+                                              width: SizeVariables.getWidth(
+                                                      context) *
+                                                  0.3,
+                                              child: TextFormField(
+                                                controller: _gst,
+                                                keyboardType:
+                                                    TextInputType.number,
+                                                decoration: InputDecoration(
+                                                  enabledBorder:
+                                                      UnderlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      width: 2,
+                                                      color: Theme.of(context)
+                                                          .bottomAppBarColor,
+                                                    ),
+                                                  ),
+                                                  focusedBorder:
+                                                      const UnderlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      width: 2,
+                                                      color: Color.fromARGB(
+                                                          255, 194, 191, 191),
+                                                    ),
+                                                  ),
+                                                  // border: InputBorder.none,
+                                                  labelText: 'GST(%)',
+                                                  labelStyle: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyText1!
+                                                      .copyWith(
+                                                          fontSize: 18,
+                                                          color: Colors.black),
+                                                ),
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyText2!
+                                                    .copyWith(
+                                                        color: Colors.black),
+                                                showCursor: true,
+                                                cursorColor: Colors.black,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        width: SizeVariables.getWidth(context) *
+                                            0.75,
+                                        child: TextFormField(
+                                          controller: _total,
+                                          keyboardType: TextInputType.number,
+                                          decoration: InputDecoration(
+                                            enabledBorder: UnderlineInputBorder(
+                                              borderSide: BorderSide(
+                                                width: 2,
+                                                color: Theme.of(context)
+                                                    .bottomAppBarColor,
+                                              ),
+                                            ),
+                                            focusedBorder:
+                                                const UnderlineInputBorder(
+                                              borderSide: BorderSide(
+                                                width: 2,
+                                                color: Color.fromARGB(
+                                                    255, 194, 191, 191),
+                                              ),
+                                            ),
+                                            // border: InputBorder.none,
+                                            labelText: 'Total',
+                                            labelStyle: Theme.of(context)
+                                                .textTheme
+                                                .bodyText1!
+                                                .copyWith(
+                                                    fontSize: 18,
+                                                    color: Colors.black),
+                                          ),
                                           style: Theme.of(context)
                                               .textTheme
-                                              .bodyText2,
+                                              .bodyText2!
+                                              .copyWith(color: Colors.black),
+                                          showCursor: true,
+                                          cursorColor: Colors.black,
                                         ),
                                       ),
-                                    ),
-                                    InkWell(
-                                      onTap: () {},
-                                      child: Container(
-                                        padding: EdgeInsets.only(
-                                            left: SizeVariables.getWidth(
-                                                    context) *
-                                                0.01),
-                                        child: Icon(
-                                          Icons.info_outline_rounded,
-                                          size: 15,
-                                          color: Theme.of(context)
-                                              .bottomAppBarColor,
+                                      Container(
+                                        width: SizeVariables.getWidth(context) *
+                                            0.75,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Container(
+                                              padding: EdgeInsets.only(
+                                                top: SizeVariables.getHeight(
+                                                        context) *
+                                                    0.02,
+                                              ),
+                                              width: SizeVariables.getWidth(
+                                                      context) *
+                                                  0.3,
+                                              child: Column(
+                                                children: [
+                                                  Container(
+                                                    child: FittedBox(
+                                                      fit: BoxFit.contain,
+                                                      child: Text(
+                                                        'Delivery mode',
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .bodyText2,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    child:
+                                                        DropdownButton<String>(
+                                                      underline: Container(),
+                                                      iconSize: 25,
+                                                      icon: const Icon(
+                                                        Icons.expand_more,
+                                                        color: Colors.black,
+                                                      ),
+                                                      dropdownColor:
+                                                          Colors.white,
+                                                      onChanged: (value) {
+                                                        setState(() {
+                                                          details = value!;
+                                                          print(value);
+                                                        });
+                                                      },
+                                                      value: details,
+                                                      items: detail.map((item) {
+                                                        return DropdownMenuItem(
+                                                            value: item,
+                                                            child: Text(
+                                                              item,
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .black),
+                                                            ));
+                                                      }).toList(),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              width: SizeVariables.getWidth(
+                                                      context) *
+                                                  0.3,
+                                              child: TextFormField(
+                                                onTap: () {
+                                                  showDatePicker(
+                                                    builder: (context, child) =>
+                                                        Theme(
+                                                      data:
+                                                          ThemeData().copyWith(
+                                                        colorScheme:
+                                                            ColorScheme.dark(
+                                                          primary:
+                                                              Color.fromARGB(
+                                                                  255,
+                                                                  175,
+                                                                  204,
+                                                                  255),
+                                                          surface:
+                                                              Theme.of(context)
+                                                                  .colorScheme
+                                                                  .secondary,
+                                                          onSurface:
+                                                              Theme.of(context)
+                                                                  .colorScheme
+                                                                  .background,
+                                                        ),
+                                                        dialogBackgroundColor:
+                                                            Color.fromARGB(255,
+                                                                42, 42, 42),
+                                                      ),
+                                                      child: child!,
+                                                    ),
+                                                    context: context,
+                                                    initialDate: DateTime.now(),
+                                                    firstDate: DateTime(2018),
+                                                    lastDate: DateTime(2030),
+                                                  ).then(
+                                                    (value) {
+                                                      setState(
+                                                        () {
+                                                          _ddate.text =
+                                                              dateFormat.format(
+                                                            DateTime.parse(
+                                                              value.toString(),
+                                                            ),
+                                                          );
+                                                        },
+                                                      );
+                                                    },
+                                                  );
+                                                },
+                                                controller: _ddate,
+                                                readOnly: true,
+                                                keyboardType:
+                                                    TextInputType.number,
+                                                decoration: InputDecoration(
+                                                  enabledBorder:
+                                                      UnderlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      width: 2,
+                                                      color: Theme.of(context)
+                                                          .bottomAppBarColor,
+                                                    ),
+                                                  ),
+                                                  focusedBorder:
+                                                      const UnderlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      width: 2,
+                                                      color: Color.fromARGB(
+                                                          255, 194, 191, 191),
+                                                    ),
+                                                  ),
+                                                  // border: InputBorder.none,
+                                                  labelText: 'Delivery date',
+                                                  labelStyle: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyText1!
+                                                      .copyWith(
+                                                          fontSize: 18,
+                                                          color: Colors.black),
+                                                ),
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyText2!
+                                                    .copyWith(
+                                                        color: Colors.black),
+                                                showCursor: true,
+                                                cursorColor: Colors.black,
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Container(
-                                  child: FittedBox(
-                                    fit: BoxFit.contain,
-                                    child: Text(
-                                      'keyboard with lights',
-                                      style:
-                                          Theme.of(context).textTheme.bodyText1,
-                                    ),
+                                    ],
                                   ),
                                 ),
+                                // SizedBox(
+                                //   height: SizeVariables.getHeight(context) * 0.03,
+                                // ),
+                                // Container(
+                                //   width: SizeVariables.getWidth(context) * 0.75,
+                                //   child: Row(
+                                //     mainAxisAlignment: MainAxisAlignment.end,
+                                //     children: [
+                                //       Container(
+                                //         height: SizeVariables.getHeight(context) * 0.037,
+                                //         width: SizeVariables.getWidth(context) * 0.26,
+                                //         child: AppButton(
+                                //           label: 'Submit',
+                                //           onPressed: () {},
+                                //         ),
+                                //       ),
+                                //     ],
+                                //   ),
+                                // ),
                               ],
                             ),
                           ),
-                          Container(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  child: FittedBox(
-                                    fit: BoxFit.contain,
-                                    child: Text(
-                                      'Required Date',
-                                      style:
-                                          Theme.of(context).textTheme.bodyText2,
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  child: FittedBox(
-                                    fit: BoxFit.contain,
-                                    child: Text(
-                                      '2023-02-10',
-                                      style:
-                                          Theme.of(context).textTheme.bodyText1,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.only(
-                  left: SizeVariables.getWidth(context) * 0.025,
-                ),
-                child: Column(
-                  children: [
-                    Container(
-                      width: SizeVariables.getWidth(context) * 0.75,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            width: SizeVariables.getWidth(context) * 0.3,
-                            child: TextFormField(
-                              controller: _quantity,
-                              keyboardType: TextInputType.number,
-                              decoration: InputDecoration(
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    width: 2,
-                                    color: Theme.of(context).bottomAppBarColor,
-                                  ),
-                                ),
-                                focusedBorder: const UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                      width: 2,
-                                      color:
-                                          Color.fromARGB(255, 194, 191, 191)),
-                                ),
-                                // border: InputBorder.none,
-                                labelText: 'Quantity',
-                                labelStyle: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1!
-                                    .copyWith(
-                                        fontSize: 18, color: Colors.black),
-                              ),
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText2!
-                                  .copyWith(color: Colors.black),
-                              showCursor: true,
-                              cursorColor: Colors.black,
-                            ),
-                          ),
-                          Container(
-                            width: SizeVariables.getWidth(context) * 0.3,
-                            child: TextFormField(
-                              controller: _price,
-                              keyboardType: TextInputType.number,
-                              decoration: InputDecoration(
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    width: 2,
-                                    color: Theme.of(context).bottomAppBarColor,
-                                  ),
-                                ),
-                                focusedBorder: const UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    width: 2,
-                                    color: Color.fromARGB(255, 194, 191, 191),
-                                  ),
-                                ),
-                                // border: InputBorder.none,
-                                labelText: 'Price',
-                                labelStyle: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1!
-                                    .copyWith(
-                                        fontSize: 18, color: Colors.black),
-                              ),
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText2!
-                                  .copyWith(color: Colors.black),
-                              showCursor: true,
-                              cursorColor: Colors.black,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      width: SizeVariables.getWidth(context) * 0.75,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            width: SizeVariables.getWidth(context) * 0.3,
-                            child: TextFormField(
-                              controller: _discount,
-                              keyboardType: TextInputType.number,
-                              decoration: InputDecoration(
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    width: 2,
-                                    color: Theme.of(context).bottomAppBarColor,
-                                  ),
-                                ),
-                                focusedBorder: const UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                      width: 2,
-                                      color:
-                                          Color.fromARGB(255, 194, 191, 191)),
-                                ),
-                                // border: InputBorder.none,
-                                labelText: 'Discount',
-                                labelStyle: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1!
-                                    .copyWith(
-                                        fontSize: 18, color: Colors.black),
-                              ),
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText2!
-                                  .copyWith(color: Colors.black),
-                              showCursor: true,
-                              cursorColor: Colors.black,
-                            ),
-                          ),
-                          Container(
-                            width: SizeVariables.getWidth(context) * 0.3,
-                            child: TextFormField(
-                              controller: _gst,
-                              keyboardType: TextInputType.number,
-                              decoration: InputDecoration(
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    width: 2,
-                                    color: Theme.of(context).bottomAppBarColor,
-                                  ),
-                                ),
-                                focusedBorder: const UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    width: 2,
-                                    color: Color.fromARGB(255, 194, 191, 191),
-                                  ),
-                                ),
-                                // border: InputBorder.none,
-                                labelText: 'GST(%)',
-                                labelStyle: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1!
-                                    .copyWith(
-                                        fontSize: 18, color: Colors.black),
-                              ),
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText2!
-                                  .copyWith(color: Colors.black),
-                              showCursor: true,
-                              cursorColor: Colors.black,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      width: SizeVariables.getWidth(context) * 0.75,
-                      child: TextFormField(
-                        controller: _total,
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 2,
-                              color: Theme.of(context).bottomAppBarColor,
-                            ),
-                          ),
-                          focusedBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 2,
-                              color: Color.fromARGB(255, 194, 191, 191),
-                            ),
-                          ),
-                          // border: InputBorder.none,
-                          labelText: 'Total',
-                          labelStyle: Theme.of(context)
-                              .textTheme
-                              .bodyText1!
-                              .copyWith(fontSize: 18, color: Colors.black),
                         ),
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyText2!
-                            .copyWith(color: Colors.black),
-                        showCursor: true,
-                        cursorColor: Colors.black,
                       ),
-                    ),
-                    Container(
-                      width: SizeVariables.getWidth(context) * 0.75,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            padding: EdgeInsets.only(
-                              top: SizeVariables.getHeight(context) * 0.02,
-                            ),
-                            width: SizeVariables.getWidth(context) * 0.3,
-                            child: Column(
-                              children: [
-                                Container(
-                                  child: FittedBox(
-                                    fit: BoxFit.contain,
-                                    child: Text(
-                                      'Delivery mode',
-                                      style:
-                                          Theme.of(context).textTheme.bodyText2,
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  child: DropdownButton<String>(
-                                    underline: Container(),
-                                    iconSize: 25,
-                                    icon: const Icon(
-                                      Icons.expand_more,
-                                      color: Colors.black,
-                                    ),
-                                    dropdownColor: Colors.white,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        details = value!;
-                                        print(value);
-                                      });
-                                    },
-                                    value: details,
-                                    items: detail.map((item) {
-                                      return DropdownMenuItem(
-                                          value: item,
-                                          child: Text(
-                                            item,
-                                            style:
-                                                TextStyle(color: Colors.black),
-                                          ));
-                                    }).toList(),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            width: SizeVariables.getWidth(context) * 0.3,
-                            child: TextFormField(
-                              onTap: () {
-                                showDatePicker(
-                                  builder: (context, child) => Theme(
-                                    data: ThemeData().copyWith(
-                                      colorScheme: ColorScheme.dark(
-                                        primary: Theme.of(context)
-                                            .colorScheme
-                                            .secondary,
-                                        surface: Theme.of(context)
-                                            .colorScheme
-                                            .secondary,
-                                        onSurface: Theme.of(context)
-                                            .colorScheme
-                                            .background,
-                                      ),
-                                      dialogBackgroundColor:
-                                          Color.fromARGB(255, 42, 42, 42),
-                                    ),
-                                    child: child!,
-                                  ),
-                                  context: context,
-                                  initialDate: DateTime.now(),
-                                  firstDate: DateTime(2018),
-                                  lastDate: DateTime(2030),
-                                ).then(
-                                  (value) {
-                                    setState(
-                                      () {
-                                        _ddate.text = dateFormat.format(
-                                          DateTime.parse(
-                                            value.toString(),
-                                          ),
-                                        );
-                                      },
-                                    );
-                                  },
-                                );
-                              },
-                              controller: _ddate,
-                              readOnly: true,
-                              keyboardType: TextInputType.number,
-                              decoration: InputDecoration(
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    width: 2,
-                                    color: Theme.of(context).bottomAppBarColor,
-                                  ),
-                                ),
-                                focusedBorder: const UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    width: 2,
-                                    color: Color.fromARGB(255, 194, 191, 191),
-                                  ),
-                                ),
-                                // border: InputBorder.none,
-                                labelText: 'Delivery date',
-                                labelStyle: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1!
-                                    .copyWith(
-                                        fontSize: 18, color: Colors.black),
-                              ),
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText2!
-                                  .copyWith(color: Colors.black),
-                              showCursor: true,
-                              cursorColor: Colors.black,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: SizeVariables.getHeight(context) * 0.03,
-              ),
-              Container(
-                width: SizeVariables.getWidth(context) * 0.75,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Container(
-                      height: SizeVariables.getHeight(context) * 0.037,
-                      width: SizeVariables.getWidth(context) * 0.26,
-                      child: AppButton(
-                        label: 'Submit',
-                        onPressed: () {},
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+                    );
+                  }),
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

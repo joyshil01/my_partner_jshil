@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sizer/sizer.dart';
 import '../../res/components/date_range_picker.dart';
 import '../../res/mediaQuery.dart';
@@ -96,7 +97,7 @@ class _QuotationScreenState extends State<QuotationScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.all(3),
+                                    padding: const EdgeInsets.all(8),
                                     child: Container(
                                       // width: SizeVariables.getWidth(context)*0.15,
                                       child: FittedBox(
@@ -111,7 +112,7 @@ class _QuotationScreenState extends State<QuotationScreen> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.all(3),
+                                    padding: const EdgeInsets.all(8),
                                     child: Container(
                                       // width: SizeVariables.getWidth(context)*0.15,
                                       child: FittedBox(
@@ -133,7 +134,7 @@ class _QuotationScreenState extends State<QuotationScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.all(3),
+                                    padding: const EdgeInsets.all(8),
                                     child: Container(
                                       // width: SizeVariables.getWidth(context)*0.15,
                                       child: FittedBox(
@@ -148,7 +149,7 @@ class _QuotationScreenState extends State<QuotationScreen> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.all(3),
+                                    padding: const EdgeInsets.all(8),
                                     child: Container(
                                       width: SizeVariables.getWidth(context) *
                                           0.18,
@@ -171,22 +172,64 @@ class _QuotationScreenState extends State<QuotationScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.all(3),
+                                    padding: const EdgeInsets.all(8.0),
                                     child: Container(
-                                      child: FittedBox(
-                                        fit: BoxFit.cover,
-                                        child: Text(
-                                          '\₹123617',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyText1!
-                                              .copyWith(fontSize: 16),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        color: Color.fromARGB(255, 174, 194, 185),
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 7.0,
+                                            right: 7.0,
+                                            top: 2.8,
+                                            bottom: 2.8),
+                                        child: Center(
+                                          child: FittedBox(
+                                            fit: BoxFit.contain,
+                                            child: Column(
+                                              crossAxisAlignment: CrossAxisAlignment.end,
+                                              children: [
+                                                Text(
+                                                  'Quotation yet to send',
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyText1!
+                                                      .copyWith(
+                                                        color: Color.fromARGB(
+                                                            255, 63, 147, 84),
+                                                        fontSize: 12,
+                                                      ),
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    SvgPicture.asset(
+                                                      "assets/icons/status/doube tick 1.svg",
+                                                      height: 6,
+                                                      color: Colors.green,
+                                                    ),
+                                                    Text(
+                                                      '2023-02-23',
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .bodyText1!
+                                                          .copyWith(
+                                                            color: Color.fromARGB(
+                                                                255, 63, 147, 84),
+                                                            fontSize: 8,
+                                                          ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.all(3),
+                                    padding: const EdgeInsets.all(8),
                                     child: Container(
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(10),

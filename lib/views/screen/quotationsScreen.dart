@@ -247,7 +247,7 @@ class _QuotationScreenState extends State<QuotationScreen> {
                                                       .copyWith(
                                                         color: Color.fromARGB(
                                                             255, 63, 147, 84),
-                                                        fontSize: 10,
+                                                        fontSize: 12,
                                                       ),
                                                 ),
                                               ],

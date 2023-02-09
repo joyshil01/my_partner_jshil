@@ -215,7 +215,7 @@ class _QuotationScreenState extends State<QuotationScreen> {
                                                           .bodyText1!
                                                           .copyWith(
                                                             color: Colors.black,
-                                                            fontSize: 8,
+                                                            fontSize: 12,
                                                           ),
                                                     ),
                                                   ],

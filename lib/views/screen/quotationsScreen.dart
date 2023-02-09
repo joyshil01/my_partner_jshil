@@ -176,7 +176,7 @@ class _QuotationScreenState extends State<QuotationScreen> {
                                     child: Container(
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(10),
-                                        color: Color.fromARGB(255, 174, 194, 185),
+                                        color: Colors.amber.shade200,
                                       ),
                                       child: Padding(
                                         padding: const EdgeInsets.only(
@@ -188,7 +188,8 @@ class _QuotationScreenState extends State<QuotationScreen> {
                                           child: FittedBox(
                                             fit: BoxFit.contain,
                                             child: Column(
-                                              crossAxisAlignment: CrossAxisAlignment.end,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
                                               children: [
                                                 Text(
                                                   'Quotation yet to send',
@@ -196,26 +197,24 @@ class _QuotationScreenState extends State<QuotationScreen> {
                                                       .textTheme
                                                       .bodyText1!
                                                       .copyWith(
-                                                        color: Color.fromARGB(
-                                                            255, 63, 147, 84),
+                                                        color: Colors.black,
                                                         fontSize: 12,
                                                       ),
                                                 ),
                                                 Row(
                                                   children: [
-                                                    SvgPicture.asset(
-                                                      "assets/icons/status/doube tick 1.svg",
-                                                      height: 6,
-                                                      color: Colors.green,
-                                                    ),
+                                                    // SvgPicture.asset(
+                                                    //   "assets/icons/status/doube tick 1.svg",
+                                                    //   height: 6,
+                                                    //   color: Colors.green,
+                                                    // ),
                                                     Text(
                                                       '2023-02-23',
                                                       style: Theme.of(context)
                                                           .textTheme
                                                           .bodyText1!
                                                           .copyWith(
-                                                            color: Color.fromARGB(
-                                                                255, 63, 147, 84),
+                                                            color: Colors.black,
                                                             fontSize: 8,
                                                           ),
                                                     ),
@@ -246,7 +245,7 @@ class _QuotationScreenState extends State<QuotationScreen> {
                                           child: FittedBox(
                                             fit: BoxFit.contain,
                                             child: Text(
-                                              'Quotation yet to send',
+                                              'Quotation send',
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .bodyText1!

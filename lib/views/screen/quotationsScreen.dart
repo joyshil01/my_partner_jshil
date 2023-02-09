@@ -201,25 +201,6 @@ class _QuotationScreenState extends State<QuotationScreen> {
                                                         fontSize: 12,
                                                       ),
                                                 ),
-                                                Row(
-                                                  children: [
-                                                    // SvgPicture.asset(
-                                                    //   "assets/icons/status/doube tick 1.svg",
-                                                    //   height: 6,
-                                                    //   color: Colors.green,
-                                                    // ),
-                                                    Text(
-                                                      '2023-02-23',
-                                                      style: Theme.of(context)
-                                                          .textTheme
-                                                          .bodyText1!
-                                                          .copyWith(
-                                                            color: Colors.black,
-                                                            fontSize: 12,
-                                                          ),
-                                                    ),
-                                                  ],
-                                                ),
                                               ],
                                             ),
                                           ),
@@ -244,16 +225,32 @@ class _QuotationScreenState extends State<QuotationScreen> {
                                         child: Center(
                                           child: FittedBox(
                                             fit: BoxFit.contain,
-                                            child: Text(
-                                              'Quotation send',
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .bodyText1!
-                                                  .copyWith(
-                                                    color: Color.fromARGB(
-                                                        255, 63, 147, 84),
-                                                    fontSize: 12,
-                                                  ),
+                                            child: Column(
+                                              crossAxisAlignment: CrossAxisAlignment.end,
+                                              children: [
+                                                Text(
+                                                  'Quotation send',
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyText1!
+                                                      .copyWith(
+                                                        color: Color.fromARGB(
+                                                            255, 63, 147, 84),
+                                                        fontSize: 12,
+                                                      ),
+                                                ),
+                                                Text(
+                                                  '2023-02-23',
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyText1!
+                                                      .copyWith(
+                                                        color: Color.fromARGB(
+                                                            255, 63, 147, 84),
+                                                        fontSize: 10,
+                                                      ),
+                                                ),
+                                              ],
                                             ),
                                           ),
                                         ),

@@ -6,6 +6,8 @@ import 'package:vendor/views/screen/miscellaneous_screen.dart';
 import 'package:vendor/views/screen/podetails_Screen.dart';
 import 'package:vendor/views/screen/profileScreen.dart';
 import 'package:vendor/views/screen/quotationFormScreen.dart';
+import 'package:vendor/views/screen/quotationMultiForm.dart';
+import 'package:vendor/views/screen/quotationMultiScreen.dart';
 import 'package:vendor/views/screen/uploadAccountStatement_screen.dart';
 import 'package:vendor/views/screen/uploadCrNote_screen.dart';
 import 'package:vendor/views/screen/uploadInvoice_screen.dart';
@@ -53,6 +55,14 @@ class Routes {
       case RouteNames.profile:
         return MaterialPageRoute(
             builder: (BuildContext context) => ProfileScreen());
+
+      case RouteNames.quotationmulti:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => QuotationMultiScreen());
+
+      case RouteNames.quotationmultiform:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => QuotationMultiForm());
 
       default:
         return MaterialPageRoute(

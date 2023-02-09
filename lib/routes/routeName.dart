@@ -9,4 +9,6 @@ class RouteNames {
   static const String upload_account_statement = 'upload-account-statement';
   static const String miscellaneous = 'miscellaneous-screen';
   static const String profile = 'profile-screen';
+  static const String quotationmulti = 'quotation-multi';
+  static const String quotationmultiform = 'quotationmultiform';
 }

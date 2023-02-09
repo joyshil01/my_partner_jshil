@@ -78,7 +78,7 @@ class _QuotationScreenState extends State<QuotationScreen> {
                   itemCount: 15,
                   itemBuilder: (context, index) => InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, RouteNames.quotationform);
+                      Navigator.pushNamed(context, RouteNames.quotationmulti);
                     },
                     child: Padding(
                       padding: EdgeInsets.only(
